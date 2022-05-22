@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<style src="css1.css"></style>
+<script src="js2.js"></script>
+
+<html lang=de dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Projekt 1 - Reber Grammer</title>
+</head>
+
+<body>
+<h1>Projekt 1 - Reber Grammer</h1>
+<h2>Was ist die Reber Grammer?</h2>
+    <p>Der Automat zur Prüfung der Reber-Grammatik wird in <em> Abbildung 1 </em> dargestellt.</p>
+    <figure>
+      <img src="Bild_Reber-Grammer.gif" alt="Reber-Grammer" height="300px" width="400px">
+      <figcaption> Abbildung 1: Automat Reber-Grammatik [s. Dokumentation - Quelle 1]</figcaption>
+    </figure>
+    <p> Der Automat startet bei <B> B </B> und bewegt sich über die Knoten bzw. Schleifen bis zum Endzustand <B> E </B>.
+    Wir dieser Erreicht, dann wir das Wort akzeptiert und gehört somit zur Sprache der Reber-Grammatik. Wir das Wort verworfen, dann gehört es nicht zur Sprache.
+    Im Folgenden können verschiedene Wörter gebildet werden. Der Automat prüft dann, ob das Wort zur Sprache gehört und gibt das Ergebnis der Überprüfung aus. </p>
+
+<h2> Visualisieren des Automaten</h2>
+  <p> Im zur Verfügung gestellten Automaten-Simulator wurde Anhand verschiedener Eingabe aus dem Alphabet &#931; = {B, T, S, X, P, V, E} untersucht, welche Wörter zur Reber-Grammer gehören. Die Visualisierung fand dann über die Plattform
+  <a href="https://gojs.net/latest/samples/blockEditor.html">Gojs-Block Editor</a> statt. An der Stelle sollte hier eigentlich die Visualisierung automatisch stattfinden. Die Umsetzung dafür gelang allerding nicht. <a href="Dokumentation.html" target="content">Siehe Dokumentation</a></p>
+
+<h3> Erläuterung der Visualisierung</h3>
+  <p> Der Automat untersucht Anhand einzelner Zeichen aus dem Wort, ob dieses zu einem nächsten "erlaubten" Zustand führt oder nicht. Der Prozess beginnt bei "Start". Das erste Zeichen bei Wörtern aus der Reber-Grammer ist dann in jedem Fall ein "B". Sind die einzelnen Wörter durchgerabeitet vom Automaten, dann gehören sie zur Sprache, wenn der Endzustand erreicht wird. Bei der Reber-Grammer ist das letzte Zeichen dabei ein "E"
+    Besonderheiten bilden die im Kreis dargestellten Zeichen "S" und "T". Wird der Zusand erreicht, dann kann dieser beliebig oft wiederholt werden. Verlassen wird diese Schleife über ein korrekt folgendes Zeichen oder bei einem nicht-korrekt folgenden Zeichen. Bei letzterem ist dann das Wort nicht Teil der Sprache.
+  </p>
+<h4>zu prüfendes Wort: BTXSE</h4>
+  <p>Im folgenden Diagramm wird ein korrektes Wort vom Automaten visualisiert. Die Visualisierung wird am Beispielwort "BTXSE" durchgeführt.</p>
+  <img src="BTXSE.png" alt="BTXSE"height="600px" width="600px">
+  <figcaption> Abbildung 2: Das Wort "BTXSE" </figcaption>
+  <p>Alle Zustände werden korrekt durchlaufen. Das heißt, dass alle Zeichen gültig sind. Damit gehört das Wort zur Reber-Grammer.</p>
+<h4>zu prüfendes Wort: BPTTTVPSE</h4>
+  <p>Ein weiteres zur Reber-Grammer passendes Wort ist "BPTTTVPSE".</p>
+  <img src="BPTTTVPSE.png" alt="BPTTTVPSE"height="600px" width="600px">
+  <figcaption> Abbildung 3: Das Wort "BPTTTVPSE" </figcaption>
+  <p>Die Zeichen werden nacheinander geprüft. Das Zeichen "T" befindet sich in einer Schleife und durchläuft die mehrfach ohne die Regeln der Grammatik zu verletzen. Es gelangt dann in den Entzustand und wird als Wort der Reber-Grammer erkannt.</p>
+<h4>zu prüfendes Wort: PBXVVE</h4>
+  <p>Das Wort "PBXVVE" wurde vom Simulator als nicht akzeptiert ausgegeben und dementsprechend auch als nicht korrekt visualisiert.</p>
+  <img src="PBXVVE.png" alt="PBXVVE" height="600px" width="600px">
+  <figcaption> Abbildung 4: Das Wort "PBXVVE" </figcaption>
+  <p>Im Folgendem können Wörter eingegeben werden. Durch Drücken der Eingabe-Taste werden die Wörter überprüft.</p>
+<h2>User-Eingabe</h2>
+  <p> Der Automat kann Prüfen, ob die von Ihnen eingegeben Wörter zur Sprache der Reber-Grammer gehören. Das Wort muss dafür aus dem Alphabet &#931; = {B, T, S, X, P, V, E} gebildet werden. Wichtig ist dabei, die Groß- und Kleinschreibung zu beachten.</p>
+
+<form name="Formular" action="">
+   <input type="text" name="Eingabe" size="20">
+   <input type="button" value="Ausgabe" onClick="Automat()">
+ </form>
+<p></p>
+
+<hr>
+
+<h3>Dokumentation</h2>
+<a href="Dokumentation.html" target="content"> <img src="doku.jpg" alt="Dokumentation" height="100px" width="75px"></a>
+
+  </body>
+</html>
